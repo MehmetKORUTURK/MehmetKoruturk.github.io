@@ -10,16 +10,6 @@ Personal academic website of **Mehmet Koruturk** — M.S. student in Electrical 
 
 I work on **reinforcement learning**, **optimization**, and **grid-interactive power systems** — specifically, on energy-management agents that are not only efficient but also safe, interpretable, and able to adapt as grid conditions, uncertainty, and disturbances evolve.
 
-The site has five sections:
-
-| Section | Content |
-|---|---|
-| **About** | Short intro and research focus |
-| **Research** | Three current directions: RL benchmarking, DER coordination, post-disaster resilience |
-| **Publications** | Reverse-chronological list with status badges (Accepted · Under review · In preparation · Published) |
-| **CV** | Education, experience, service, awards, skills, plus a downloadable PDF |
-| **Contact** | Email + social links |
-
 ---
 
 ## Contact
