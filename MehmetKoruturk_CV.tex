@@ -93,6 +93,16 @@
 \addbibresource{citations.bib}
 \setlength\bibitemsep{1em}
 
+% --- Bold "Koruturk, Mehmet" in author lists ---
+\renewcommand*{\mkbibnamefamily}[1]{%
+  \ifdefstring{\namepartfamily}{Koruturk}{\textbf{#1}}{#1}}
+\renewcommand*{\mkbibnamegiven}[1]{%
+  \ifdefstring{\namepartfamily}{Koruturk}{\textbf{#1}}{#1}}
+
+% --- Bold (and keep italic) journal / conference / booktitle names ---
+\DeclareFieldFormat{journaltitle}{\textit{\textbf{#1}}}
+\DeclareFieldFormat{booktitle}{\textit{\textbf{#1}}}
+
 %for social icons
 \usepackage{fontawesome5}
 
