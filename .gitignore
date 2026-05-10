@@ -8,6 +8,12 @@ site-*.png
 Thumbs.db
 *.log
 
+# Private CV sources (PDF stays tracked so the site download works)
+*.tex
+*.bib
+*.cls
+*.sty
+
 # LaTeX intermediates
 *.aux
 *.fdb_latexmk
@@ -15,3 +21,49 @@ Thumbs.db
 *.out
 *.synctex.gz
 *.toc
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+
+# Private folders
+private/
+drafts/
+notes/
+_local/
+
+# Secrets / credentials
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+secrets.json
+credentials.json
+config.local.*
+*.local.json
+
+# Editor / OS
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Node
+node_modules/
+.npm/
+
+# Data
+*.csv
+*.xlsx
+*.parquet
+data/
