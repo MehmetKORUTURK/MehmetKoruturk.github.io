@@ -316,12 +316,14 @@ h1 {
   color: var(--text-muted);
   border: 1px solid var(--border);
 }
-.status-accepted {
+.status-accepted,
+.status-published {
   background: color-mix(in srgb, #16a34a 14%, transparent);
   color: #15803d;
   border: 1px solid color-mix(in srgb, #16a34a 40%, transparent);
 }
-[data-theme="dark"] .status-accepted {
+[data-theme="dark"] .status-accepted,
+[data-theme="dark"] .status-published {
   color: #4ade80;
   border-color: color-mix(in srgb, #4ade80 45%, transparent);
 }
