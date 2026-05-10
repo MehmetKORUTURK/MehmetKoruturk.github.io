@@ -1,191 +1,281 @@
-% ============================================================
-%  Mehmet KORUTURK — Curriculum Vitae
-%  Compile:  pdflatex MehmetKoruturk_CV.tex
-%            (run twice for clean cross-references)
-%  Requires: fontawesome5, titlesec, tabularx, hyperref
-%            (all standard in TeX Live / MiKTeX)
-% ============================================================
+%-----------------------------------------------------------------------------------------------------------------------------------------------%
+%	The MIT License (MIT)
+%
+%	Copyright (c) 2021 Jitin Nair
+%
+%	Permission is hereby granted, free of charge, to any person obtaining a copy
+%	of this software and associated documentation files (the "Software"), to deal
+%	in the Software without restriction, including without limitation the rights
+%	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+%	copies of the Software, and to permit persons to whom the Software is
+%	furnished to do so, subject to the following conditions:
+%	
+%	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+%	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+%	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+%	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+%	THE SOFTWARE.
+%	
+%
+%-----------------------------------------------------------------------------------------------------------------------------------------------%
 
-\documentclass[11pt,letterpaper]{article}
+%----------------------------------------------------------------------------------------
+%	DOCUMENT DEFINITION
+%----------------------------------------------------------------------------------------
 
-% --- Packages ---------------------------------------------------------------
-\usepackage[margin=1in,top=0.9in,bottom=0.9in]{geometry}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{lmodern}
-\usepackage[hidelinks]{hyperref}
-\usepackage{titlesec}
-\usepackage{enumitem}
+% article class because we want to fully customize the page and not use a cv template
+\documentclass[a4paper,12pt]{article}
+
+%----------------------------------------------------------------------------------------
+%	FONT
+%----------------------------------------------------------------------------------------
+
+% % fontspec allows you to use TTF/OTF fonts directly
+% \usepackage{fontspec}
+% \defaultfontfeatures{Ligatures=TeX}
+
+% % modified for ShareLaTeX use
+% \setmainfont[
+% SmallCapsFont = Fontin-SmallCaps.otf,
+% BoldFont = Fontin-Bold.otf,
+% ItalicFont = Fontin-Italic.otf
+% ]
+% {Fontin.otf}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES
+%----------------------------------------------------------------------------------------
+\usepackage{url}
+\usepackage{parskip} 	
+
+%other packages for formatting
+\RequirePackage{color}
+\RequirePackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[scale=0.9]{geometry}
+
+%tabularx environment
 \usepackage{tabularx}
+
+%for lists within experience section
+\usepackage{enumitem}
+
+% centered version of 'X' col. type
+\newcolumntype{C}{>{\centering\arraybackslash}X} 
+
+%to prevent spillover of tabular into next pages
+\usepackage{supertabular}
+\usepackage{tabularx}
+\newlength{\fullcollw}
+\setlength{\fullcollw}{0.47\textwidth}
+
+%custom \section
+\usepackage{titlesec}				
+\usepackage{multicol}
+\usepackage{multirow}
+
+%CV Sections inspired by: 
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{10pt}{10pt}
+
+%for publications
+\usepackage[style=authoryear,sorting=ynt, maxbibnames=2,minnames=2]{biblatex}
+% \usepackage[backend=biber,sorting=ynt,maxnames=2,minnames=2]{biblatex}
+
+
+%Setup hyperref package, and colours for links
+\usepackage[unicode, draft=false]{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
+\addbibresource{citations.bib}
+\setlength\bibitemsep{1em}
+
+%for social icons
 \usepackage{fontawesome5}
-\usepackage{xcolor}
 
-% --- Colors -----------------------------------------------------------------
-\definecolor{accent}{HTML}{8B1A1A}
+%debug page outer frames
+%\usepackage{showframe}
 
-% --- Layout / spacing -------------------------------------------------------
-\setlength{\parindent}{0pt}
-\setlist{nosep,leftmargin=*}
-\pagenumbering{gobble}
 
-% --- Section style: SMALL CAPS + horizontal rule ----------------------------
-\titleformat{\section}
-  {\Large\scshape}{}{0em}{}
-  [\vspace{-0.5em}\hrule\vspace{0.3em}]
-\titlespacing*{\section}{0pt}{1.2em}{0.5em}
+% job listing environments
+\newenvironment{jobshort}[2]
+    {
+    \begin{tabularx}{\linewidth}{@{}l X r@{}}
+    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+    \end{tabularx}
+    }
+    {
+    }
 
-% --- Helpers ----------------------------------------------------------------
-% Dated entry: date column on the left, content on the right
-\newcommand{\dated}[2]{%
-  \noindent\begin{tabularx}{\linewidth}{@{}p{2.2in}X@{}}
-    #1 & #2 \\
-  \end{tabularx}\par\vspace{0.4em}}
+\newenvironment{joblong}[2]
+    {
+    \begin{tabularx}{\linewidth}{@{}l X r@{}}
+    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+    \end{tabularx}
+    \begin{minipage}[t]{\linewidth}
+    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
+    }
+    {
+    \end{itemize}
+    \end{minipage}    
+    }
 
-% Job heading: title on the left, date flush right
-\newcommand{\exphead}[2]{%
-  \noindent\textbf{#1}\hfill #2\par\vspace{0.2em}}
 
-% --- Hyperlinks -------------------------------------------------------------
-\hypersetup{
-  colorlinks=true,
-  urlcolor=accent,
-  linkcolor=accent,
-}
 
-% ============================================================================
+%----------------------------------------------------------------------------------------
+%	BEGIN DOCUMENT
+%----------------------------------------------------------------------------------------
 \begin{document}
 
-% --- Header -----------------------------------------------------------------
-\begin{center}
-  {\huge Mehmet KORUTURK}\\[0.4em]
-  \href{https://www.linkedin.com/in/mehmet-koruturk210199}{\faLinkedin\ mehmet-koruturk210199}
-  \quad|\quad
-  \href{mailto:mkoruturk@vt.edu}{\faEnvelope\ mkoruturk@vt.edu}
-  \quad|\quad
-  \faPhone\ +1 540 558 56 58
-\end{center}
-\vspace{0.4em}
+% non-numbered pages
+\pagestyle{empty} 
 
-% --- Research Interests -----------------------------------------------------
-\section*{Research Interests}
-My research focuses on reinforcement learning--driven decision-making for
-resilient and sustainable power systems. I develop model-free and model-based
-RL frameworks for coordinating distributed energy resources (e.g., PV, ESS,
-EV/FCEV systems) under uncertainty and non-stationary grid conditions. My
-work integrates stochastic and mixed-integer optimization with learning-based
-control to design adaptive energy management strategies that improve
-reliability, operational efficiency, and post-disaster resilience in
-grid-interactive systems.
+%----------------------------------------------------------------------------------------
+%	TITLE
+%----------------------------------------------------------------------------------------
 
-% --- Education --------------------------------------------------------------
-\section*{Education}
+% \begin{tabularx}{\linewidth}{ @{}X X@{} }
+% \huge{Your Name}\vspace{2pt} & \hfill \emoji{incoming-envelope} email@email.com \\
+% \raisebox{-0.05\height}\faGithub\ username \ | \
+% \raisebox{-0.00\height}\faLinkedin\ username \ | \ \raisebox{-0.05\height}\faGlobe \ mysite.com  & \hfill \emoji{calling} number
+% \end{tabularx}
 
-\dated{August 2024 -- Present}{%
-  \textbf{M.S.\ in Electrical Engineering}\\
-  Virginia Polytechnic Institute and State University (\textbf{Virginia Tech}),\\
-  GPA: \textbf{3.95/4.00}\\
-  Advisor: \textbf{Ming Jin}\\
-  Thesis (in progress): \textbf{Benchmarking and Adaptive Reinforcement
-  Learning for Sustainable and Resilient Power Systems}\\
-  \textbf{Relevant Coursework:}
-  \begin{itemize}
-    \item Power System Planning (\textbf{Prof.\ Lamine M.\ Mili})
-    \item Advanced Alternative Energy Systems (\textbf{Prof.\ Saifur Rahman})
-    \item Advanced Microgrids (\textbf{Prof.\ Ali Mehrizi-Sani})
-    \item Computational Methods in Power (\textbf{Prof.\ Lamine M.\ Mili})
-  \end{itemize}
-}
-
-\dated{August 2017 -- May 2022}{%
-  \textbf{B.Sc.\ in Electrical Engineering}\\
-  Yildiz Technical University (\textbf{YTU}), GPA: 3.21/4.00\\
-  Advisors: \textbf{Prof.\ Ozan Erdinc}, \textbf{Prof.\ Ali Rifat Boynuegri}
-}
-
-% --- Research Experience ----------------------------------------------------
-\section*{Research Experience}
-
-\exphead{Graduate Research Assistant, Virginia Tech}{2024 -- Present}
-\begin{itemize}
-  \item Established benchmarking simulations for evaluating reinforcement
-        learning algorithms in power system environments with operational
-        constraints, uncertainty, and non-stationary dynamics.
-  \item Developed model-free and hybrid RL-based control strategies for
-        distributed energy resource coordination in grid-interactive homes.
-  \item Formulated resilience-aware optimization models for post-disaster
-        energy restoration using constrained vehicle-to-home resources.
-  \item Analyzed the stability and robustness of learning-based energy
-        management policies under stochastic and time-varying system dynamics.
-  \item Built scalable simulation pipelines to assess algorithmic performance
-        across large parameter spaces and uncertainty realizations.
-\end{itemize}
-
-% --- Publications -----------------------------------------------------------
-\section*{Publications}
-\begin{itemize}[label={}]
-  \item \textbf{Mehmet Koruturk}, Alper Kagan Candan, et al.\ (July 2025).
-        ``\textbf{Post-Disaster Energy Management for Homes Using
-        Limited-Capacity Fuel Cell Electric Vehicle Batteries}''.\
-        In: \emph{Renewable Energy}.\ Under review.
-
-  \item \textbf{Mehmet Koruturk}, Artun Sel, et al.\ (June 2025).
-        ``\textbf{Optimization of End-Consumer Energy Management with PV, ESS,
-        EV, and Peer-to-Peer Trading in Smart Grids}''.\
-        \href{https://ieeexplore.ieee.org/document/11255815}{IEEE Xplore}.
-
-  \item Sel, Artun, Will Barrett, et al.\ (June 2025).
-        ``\textbf{Estimation of Regions of Attraction for Nonlinear Systems
-        via Coordinate-Transformed TS Models}''.\
-        \href{https://ieeexplore.ieee.org/document/11255827}{IEEE Xplore}.
-
-  \item Sel, Artun, \textbf{Mehmet Koruturk}, et al.\ (July 2025).
-        \emph{Estimation of Regions of Attraction for Nonlinear Systems via
-        Coordinate-Transformed TS Models and Piecewise Quadratic Lyapunov
-        Functions}.\
-        \href{https://ieeexplore.ieee.org/document/11256030}{IEEE Xplore}.
-
-  \item \textbf{Mehmet Koruturk}, Bilgehan Sel, et al.\ (Apr.\ 2026).
-        ``\textbf{Robust-Power Benchmark for Sustainable Power Systems}''.\
-        In: \emph{SmartGridComm}.\ Manuscript in preparation.
-\end{itemize}
-
-% --- Industry Experience ----------------------------------------------------
-\section*{Industry Experience}
-
-\exphead{Electrical Engineer, Huawei Technologies Co.\ Ltd.}{Jul 2022 -- Jul 2023, Istanbul, Turkey}
-\begin{itemize}[label=--]
-  \item Led technical deployment and validation of 4G/5G base station installations.
-  \item Conducted system-level acceptance testing and performance verification.
-  \item Coordinated site implementation for large-scale telecom infrastructure projects.
-\end{itemize}
-
-% --- Professional Service ---------------------------------------------------
-\section*{Professional Service}
-\begin{itemize}
-  \item \textbf{Peer Reviewer},\\
-        \textbf{IEEE Transactions on Automation Science and Engineering (T-ASE)}
-        (2025--Present)
-  \item \textbf{Core Organizing Committee Member},\\
-        \textbf{Power and Energy Center (PEC) 2026 Annual Conference},
-        Virginia Tech
-\end{itemize}
-
-% --- Awards -----------------------------------------------------------------
-\section*{Awards}
-\begin{itemize}
-  \item Awarded \textbf{Turkey's Ministry of Education Scholarship for
-        Graduate Studies in USA} (2022--Present)
-\end{itemize}
-
-% --- Skills -----------------------------------------------------------------
-\section*{Skills}
-\begin{tabularx}{\linewidth}{@{}p{1.6in}X@{}}
-  Programming        & Python, MATLAB \\
-  Engineering Tools  & PSCAD, AutoCAD \\
-  Productivity       & MS Office, \LaTeX \\
+\begin{tabularx}{\linewidth}{@{} C @{}}
+\Huge{Mehmet KORUTURK} \\[7.5pt]
+\href{https://www.linkedin.com/in/mehmet-koruturk210199/}{\raisebox{-0.2ex}{\faIcon[brands]{linkedin}}\ mehmet-koruturk210199} \ $|$ \ 
+\href{mailto:mkoruturk@vt.edu}{\raisebox{-0.2ex}{\faIcon{envelope}}\ mkoruturk@vt.edu} \ $|$ \ 
+\href{tel:+15405585658}{\raisebox{-0.2ex}{\faIcon{mobile-alt}}\ +1 540 558 56 58} \\
 \end{tabularx}
 
-\vspace{1em}
-\hfill {\footnotesize\itshape Last updated: \today}
+%----------------------------------------------------------------------------------------
+% Focus \& Strength
+%----------------------------------------------------------------------------------------
+
+%Interests/ Keywords/ Summary
+\section{Research Interests}
+
+My research focuses on reinforcement learning–driven decision-making 
+for resilient and sustainable power systems. I develop model-free and 
+model-based RL frameworks for coordinating distributed energy resources 
+(e.g., PV, ESS, EV/FCEV systems) under uncertainty and non-stationary grid conditions. 
+My work integrates stochastic and mixed-integer optimization with learning-based control 
+to design adaptive energy management strategies that improve reliability, 
+operational efficiency, and post-disaster resilience in grid-interactive systems.
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION
+%----------------------------------------------------------------------------------------
+\section{Education}
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+August 2024 -- Present & 
+\textbf{M.S. in Electrical Engineering} \\
+& Virginia Polytechnic Institute and State University (\textbf{Virginia Tech}),\\
+& GPA: \textbf{3.95/4.00} \\
+& Advisor: \textbf{Ming Jin} \\
+& Thesis (in progress): \textbf{Reinforcement Learning Benchmarking for Sustainable Energy Systems: Perturbation Robustness, Safety Constraints, and Multi-Agent Coordination} \\
+& \textbf{Relevant Coursework:} 
+\begin{itemize}[leftmargin=*]
+  \item Power System Planning (\textbf{Prof.\ Lamine M.\ Mili})
+  \item Advanced Alternative Energy Systems (\textbf{Prof.\ Saifur Rahman})
+  \item Advanced Microgrids (\textbf{Prof.\ Ali Mehrizi-Sani})
+  \item Computational Methods in Power (\textbf{Prof.\ Lamine M.\ Mili})
+\end{itemize} \\[6pt]
+
+August 2017 -- May 2022 & 
+\textbf{B.Sc. in Electrical Engineering} \\
+& Yildiz Technical University (\textbf{YTU}), GPA: 3.21/4.00 \\
+& Advisors: \textbf{Prof.\ Ozan Erdinc}, \textbf{Prof.\ Ali Rifat Boynuegri} \\
+\end{tabularx}
+
+
+%----------------------------------------------------------------------------------------
+%	Research Experience
+%----------------------------------------------------------------------------------------
+
+\section{Research Experience}
+
+\textbf{Graduate Research Assistant, Virginia Tech} \hfill 2024 – Present \\
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+\item Established benchmarking simulations for evaluating reinforcement learning 
+algorithms in power system environments with operational constraints, 
+uncertainty, and non-stationary dynamics.
+
+\item Developed model-free and hybrid RL-based control strategies 
+for distributed energy resource coordination in grid-interactive homes.
+
+\item Formulated resilience-aware optimization models for post-disaster 
+energy restoration using constrained vehicle-to-home resources.
+
+\item Analyzed the stability and robustness of learning-based energy management 
+policies under stochastic and time-varying system dynamics.
+
+\item Built scalable simulation pipelines to assess algorithmic performance 
+across large parameter spaces and uncertainty realizations.
+
+\end{itemize}
+
+\vspace{6pt}
+
+
+%----------------------------------------------------------------------------------------
+%	PUBLICATIONS
+%----------------------------------------------------------------------------------------
+\newpage
+\section{Publications}
+\begin{refsection}[citations.bib]
+\nocite{*}
+\printbibliography[heading=none]
+\end{refsection}
+
+
+
+%----------------------------------------------------------------------------------------
+% EXPERIENCE SECTIONS
+%----------------------------------------------------------------------------------------
+
+%Experience
+\section{Industry Experience}
+
+\begin{joblong}{Electrical Engineer, Huawei Technologies Co. Ltd.}{Jul 2022 -- Jul 2023, Istanbul, Turkey}
+    \item Led technical deployment and validation of 4G/5G base station installations.
+    \item Conducted system-level acceptance testing and performance verification.
+    \item Coordinated site implementation for large-scale telecom infrastructure projects.
+\end{joblong}
+
+
+%----------------------------------------------------------------------------------------
+%	Service
+%----------------------------------------------------------------------------------------
+\section{Professional Service}
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+ \item Peer Reviewer, \\ \textbf{\textit{IEEE Transactions on Automation Science and Engineering (T-ASE)}} (2025--Present)
+    \item Core Organizing Committee Member, \\ \textbf{\textit{Power and Energy Center (PEC) 2026 Annual Conference}}, Virginia Tech
+\end{itemize}
+
+%----------------------------------------------------------------------------------------
+%	Awards
+%----------------------------------------------------------------------------------------
+
+\section{Awards}
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+  \item Awarded \textbf{\textit{Turkey’s Ministry of Education Scholarship for Graduate Studies in USA}} \\ (2022–Present)
+\end{itemize}
+
+%----------------------------------------------------------------------------------------
+%	SKILLS
+%----------------------------------------------------------------------------------------
+
+\section{Skills}
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+Programming & Python, MATLAB \\
+Engineering Tools & PSCAD, AutoCAD \\
+Productivity & MS Office \\
+\end{tabularx}
+
+\vfill
+\center{\footnotesize Last updated: \today}
 
 \end{document}
