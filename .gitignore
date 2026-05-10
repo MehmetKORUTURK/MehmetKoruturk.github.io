@@ -1,0 +1,9 @@
+memory/
+.playwright-mcp/
+*-light*.png
+*-dark*.png
+verify-*.png
+site-*.png
+.DS_Store
+Thumbs.db
+*.log
