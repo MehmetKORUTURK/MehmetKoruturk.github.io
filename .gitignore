@@ -1,69 +1,21 @@
-memory/
-.playwright-mcp/
-*-light*.png
-*-dark*.png
-verify-*.png
-site-*.png
-.DS_Store
-Thumbs.db
-*.log
+# Whitelist approach: ignore everything by default,
+# only track files required for the live GitHub Pages site.
 
-# Private CV sources (PDF stays tracked so the site download works)
-*.tex
-*.bib
-*.cls
-*.sty
+# Ignore everything at root
+/*
 
-# LaTeX intermediates
-*.aux
-*.fdb_latexmk
-*.fls
-*.out
-*.synctex.gz
-*.toc
-*.bbl
-*.blg
-*.bcf
-*.run.xml
+# Allow only these files / dirs at root
+!/.gitignore
+!/.nojekyll
+!/index.html
+!/404.html
+!/style.css
+!/script.js
+!/robots.txt
+!/README.md
+!/MehmetKoruturk_CV.pdf
+!/assets/
 
-# Private folders
-private/
-drafts/
-notes/
-_local/
-
-# Secrets / credentials
-.env
-.env.*
-*.key
-*.pem
-*.p12
-*.pfx
-secrets.json
-credentials.json
-config.local.*
-*.local.json
-
-# Editor / OS
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# Python
-__pycache__/
-*.pyc
-*.pyo
-.venv/
-venv/
-.ipynb_checkpoints/
-
-# Node
-node_modules/
-.npm/
-
-# Data
-*.csv
-*.xlsx
-*.parquet
-data/
+# Inside assets/, ignore everything except the profile photo
+assets/*
+!assets/profile.jpg
