@@ -13,9 +13,9 @@
 !/script.js
 !/robots.txt
 !/README.md
-!/MehmetKoruturk_CV.pdf
 !/assets/
 
-# Inside assets/, ignore everything except the profile photo
+# Inside assets/, ignore everything except the profile photo and CV
 assets/*
 !assets/profile.jpg
+!assets/MK_CV.pdf
