@@ -4,7 +4,7 @@
 # Ignore everything at root
 /*
 
-# Allow only these files / dirs at root
+# Allow only these files at root
 !/.gitignore
 !/.nojekyll
 !/index.html
@@ -13,9 +13,3 @@
 !/script.js
 !/robots.txt
 !/README.md
-!/MehmetKoruturk_CV.pdf
-!/assets/
-
-# Inside assets/, ignore everything except the profile photo
-assets/*
-!assets/profile.jpg
