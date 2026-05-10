@@ -1,0 +1,191 @@
+% ============================================================
+%  Mehmet KORUTURK — Curriculum Vitae
+%  Compile:  pdflatex MehmetKoruturk_CV.tex
+%            (run twice for clean cross-references)
+%  Requires: fontawesome5, titlesec, tabularx, hyperref
+%            (all standard in TeX Live / MiKTeX)
+% ============================================================
+
+\documentclass[11pt,letterpaper]{article}
+
+% --- Packages ---------------------------------------------------------------
+\usepackage[margin=1in,top=0.9in,bottom=0.9in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{xcolor}
+
+% --- Colors -----------------------------------------------------------------
+\definecolor{accent}{HTML}{8B1A1A}
+
+% --- Layout / spacing -------------------------------------------------------
+\setlength{\parindent}{0pt}
+\setlist{nosep,leftmargin=*}
+\pagenumbering{gobble}
+
+% --- Section style: SMALL CAPS + horizontal rule ----------------------------
+\titleformat{\section}
+  {\Large\scshape}{}{0em}{}
+  [\vspace{-0.5em}\hrule\vspace{0.3em}]
+\titlespacing*{\section}{0pt}{1.2em}{0.5em}
+
+% --- Helpers ----------------------------------------------------------------
+% Dated entry: date column on the left, content on the right
+\newcommand{\dated}[2]{%
+  \noindent\begin{tabularx}{\linewidth}{@{}p{2.2in}X@{}}
+    #1 & #2 \\
+  \end{tabularx}\par\vspace{0.4em}}
+
+% Job heading: title on the left, date flush right
+\newcommand{\exphead}[2]{%
+  \noindent\textbf{#1}\hfill #2\par\vspace{0.2em}}
+
+% --- Hyperlinks -------------------------------------------------------------
+\hypersetup{
+  colorlinks=true,
+  urlcolor=accent,
+  linkcolor=accent,
+}
+
+% ============================================================================
+\begin{document}
+
+% --- Header -----------------------------------------------------------------
+\begin{center}
+  {\huge Mehmet KORUTURK}\\[0.4em]
+  \href{https://www.linkedin.com/in/mehmet-koruturk210199}{\faLinkedin\ mehmet-koruturk210199}
+  \quad|\quad
+  \href{mailto:mkoruturk@vt.edu}{\faEnvelope\ mkoruturk@vt.edu}
+  \quad|\quad
+  \faPhone\ +1 540 558 56 58
+\end{center}
+\vspace{0.4em}
+
+% --- Research Interests -----------------------------------------------------
+\section*{Research Interests}
+My research focuses on reinforcement learning--driven decision-making for
+resilient and sustainable power systems. I develop model-free and model-based
+RL frameworks for coordinating distributed energy resources (e.g., PV, ESS,
+EV/FCEV systems) under uncertainty and non-stationary grid conditions. My
+work integrates stochastic and mixed-integer optimization with learning-based
+control to design adaptive energy management strategies that improve
+reliability, operational efficiency, and post-disaster resilience in
+grid-interactive systems.
+
+% --- Education --------------------------------------------------------------
+\section*{Education}
+
+\dated{August 2024 -- Present}{%
+  \textbf{M.S.\ in Electrical Engineering}\\
+  Virginia Polytechnic Institute and State University (\textbf{Virginia Tech}),\\
+  GPA: \textbf{3.95/4.00}\\
+  Advisor: \textbf{Ming Jin}\\
+  Thesis (in progress): \textbf{Benchmarking and Adaptive Reinforcement
+  Learning for Sustainable and Resilient Power Systems}\\
+  \textbf{Relevant Coursework:}
+  \begin{itemize}
+    \item Power System Planning (\textbf{Prof.\ Lamine M.\ Mili})
+    \item Advanced Alternative Energy Systems (\textbf{Prof.\ Saifur Rahman})
+    \item Advanced Microgrids (\textbf{Prof.\ Ali Mehrizi-Sani})
+    \item Computational Methods in Power (\textbf{Prof.\ Lamine M.\ Mili})
+  \end{itemize}
+}
+
+\dated{August 2017 -- May 2022}{%
+  \textbf{B.Sc.\ in Electrical Engineering}\\
+  Yildiz Technical University (\textbf{YTU}), GPA: 3.21/4.00\\
+  Advisors: \textbf{Prof.\ Ozan Erdinc}, \textbf{Prof.\ Ali Rifat Boynuegri}
+}
+
+% --- Research Experience ----------------------------------------------------
+\section*{Research Experience}
+
+\exphead{Graduate Research Assistant, Virginia Tech}{2024 -- Present}
+\begin{itemize}
+  \item Established benchmarking simulations for evaluating reinforcement
+        learning algorithms in power system environments with operational
+        constraints, uncertainty, and non-stationary dynamics.
+  \item Developed model-free and hybrid RL-based control strategies for
+        distributed energy resource coordination in grid-interactive homes.
+  \item Formulated resilience-aware optimization models for post-disaster
+        energy restoration using constrained vehicle-to-home resources.
+  \item Analyzed the stability and robustness of learning-based energy
+        management policies under stochastic and time-varying system dynamics.
+  \item Built scalable simulation pipelines to assess algorithmic performance
+        across large parameter spaces and uncertainty realizations.
+\end{itemize}
+
+% --- Publications -----------------------------------------------------------
+\section*{Publications}
+\begin{itemize}[label={}]
+  \item \textbf{Mehmet Koruturk}, Alper Kagan Candan, et al.\ (July 2025).
+        ``\textbf{Post-Disaster Energy Management for Homes Using
+        Limited-Capacity Fuel Cell Electric Vehicle Batteries}''.\
+        In: \emph{Renewable Energy}.\ Under review.
+
+  \item \textbf{Mehmet Koruturk}, Artun Sel, et al.\ (June 2025).
+        ``\textbf{Optimization of End-Consumer Energy Management with PV, ESS,
+        EV, and Peer-to-Peer Trading in Smart Grids}''.\
+        \href{https://ieeexplore.ieee.org/document/11255815}{IEEE Xplore}.
+
+  \item Sel, Artun, Will Barrett, et al.\ (June 2025).
+        ``\textbf{Estimation of Regions of Attraction for Nonlinear Systems
+        via Coordinate-Transformed TS Models}''.\
+        \href{https://ieeexplore.ieee.org/document/11255827}{IEEE Xplore}.
+
+  \item Sel, Artun, \textbf{Mehmet Koruturk}, et al.\ (July 2025).
+        \emph{Estimation of Regions of Attraction for Nonlinear Systems via
+        Coordinate-Transformed TS Models and Piecewise Quadratic Lyapunov
+        Functions}.\
+        \href{https://ieeexplore.ieee.org/document/11256030}{IEEE Xplore}.
+
+  \item \textbf{Mehmet Koruturk}, Bilgehan Sel, et al.\ (Apr.\ 2026).
+        ``\textbf{Robust-Power Benchmark for Sustainable Power Systems}''.\
+        In: \emph{SmartGridComm}.\ Manuscript in preparation.
+\end{itemize}
+
+% --- Industry Experience ----------------------------------------------------
+\section*{Industry Experience}
+
+\exphead{Electrical Engineer, Huawei Technologies Co.\ Ltd.}{Jul 2022 -- Jul 2023, Istanbul, Turkey}
+\begin{itemize}[label=--]
+  \item Led technical deployment and validation of 4G/5G base station installations.
+  \item Conducted system-level acceptance testing and performance verification.
+  \item Coordinated site implementation for large-scale telecom infrastructure projects.
+\end{itemize}
+
+% --- Professional Service ---------------------------------------------------
+\section*{Professional Service}
+\begin{itemize}
+  \item \textbf{Peer Reviewer},\\
+        \textbf{IEEE Transactions on Automation Science and Engineering (T-ASE)}
+        (2025--Present)
+  \item \textbf{Core Organizing Committee Member},\\
+        \textbf{Power and Energy Center (PEC) 2026 Annual Conference},
+        Virginia Tech
+\end{itemize}
+
+% --- Awards -----------------------------------------------------------------
+\section*{Awards}
+\begin{itemize}
+  \item Awarded \textbf{Turkey's Ministry of Education Scholarship for
+        Graduate Studies in USA} (2022--Present)
+\end{itemize}
+
+% --- Skills -----------------------------------------------------------------
+\section*{Skills}
+\begin{tabularx}{\linewidth}{@{}p{1.6in}X@{}}
+  Programming        & Python, MATLAB \\
+  Engineering Tools  & PSCAD, AutoCAD \\
+  Productivity       & MS Office, \LaTeX \\
+\end{tabularx}
+
+\vspace{1em}
+\hfill {\footnotesize\itshape Last updated: \today}
+
+\end{document}
