@@ -1,6 +1,6 @@
 # mehmetkoruturk.github.io
 
-Personal academic website of **Mehmet Koruturk** — Ph.D. student in Electrical Engineering at **Texas A&M University**, advised by Prof. Robert Balog. Previously M.S. in Electrical Engineering at Virginia Tech, advised by Prof. Ming Jin.
+Personal academic website of **Mehmet Koruturk** — Ph.D. student in Electrical Engineering at **Texas A&M University**, advised by Prof. Robert Balog in the Renewable Energy and Advanced Power Electronics Laboratory (REAPER). Previously M.S. in Electrical Engineering at Virginia Tech, advised by Prof. Ming Jin.
 
 **Live site:** **<https://mehmetkoruturk.github.io>**
 
