@@ -1,6 +1,6 @@
 # mehmetkoruturk.github.io
 
-Personal academic website of **Mehmet Koruturk** — M.S. student in Electrical Engineering at **Virginia Tech**, advised by Prof. Ming Jin.
+Personal academic website of **Mehmet Koruturk** — Ph.D. student in Electrical Engineering at **Texas A&M University**, advised by Prof. Robert Balog. Previously M.S. in Electrical Engineering at Virginia Tech, advised by Prof. Ming Jin.
 
 **Live site:** **<https://mehmetkoruturk.github.io>**
 
@@ -14,7 +14,7 @@ I work on **reinforcement learning**, **optimization**, and **grid-interactive p
 
 ## Contact
 
-- **Email:** [mkoruturk@vt.edu](mailto:mkoruturk@vt.edu)
+- **Email:** [mkoruturk@tamu.edu](mailto:mkoruturk@tamu.edu) · [mkoruturk@vt.edu](mailto:mkoruturk@vt.edu)
 - **LinkedIn:** [mehmet-koruturk210199](https://www.linkedin.com/in/mehmet-koruturk210199/)
 - **Google Scholar:** [profile](https://scholar.google.com/citations?user=0nd6K10AAAAJ&hl=en)
 - **GitHub:** [@MehmetKORUTURK](https://github.com/MehmetKORUTURK)
